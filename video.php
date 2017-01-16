@@ -125,10 +125,11 @@ if(isset($_POST['video-upload'])) {
                     <li>Morbi eu massa volutpat, porta mauris aliquet, congue enim.</li>
                   </ul>
                 <h2>Jon Smith, show us why you are the ideal candidate.</h2>
-                <div class="form-field">
+                <div class="row">
+	                <div class="form-field large-6 medium-9 column">
                     Paste a link to your video below. We recommend using a video sharing website such as <a href="http://youtube.com" >YouTube</a> or <a href="http://vimeo.com" >Vimeo</a>
-                    <input name="videolink" type="text" placeholder="Video Link"  />
-
+                    <input name="videolink" type="text" class="video-link" placeholder="Video Link"  />
+   	             </div>                
                 </div>
                 <div class="form-field">
                     <label for="videofile">Or Upload a file
@@ -138,7 +139,7 @@ if(isset($_POST['video-upload'])) {
                     <p><span class="info small-text"><b>Max Filesize:</b> 25MB</span></p>
                 </div>
               </div>
-              <div class="large-12 columns text-center">
+              <div class="large-12 columns ">
                 <input type="submit" name="video-upload" class="button yellow wide" />
               </div>
             </div>

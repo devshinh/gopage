@@ -62,27 +62,32 @@ header, footer, section {
 }
 
 /* line 32, ../../scss/app.scss */
+.narrow-1 {
+  padding: 0.5rem 2rem;
+}
+
+/* line 33, ../../scss/app.scss */
 .row {
   max-width: 100%;
 }
 
-/* line 33, ../../scss/app.scss */
+/* line 34, ../../scss/app.scss */
 .limit-width {
   max-width: 1158px;
 }
 
-/* line 34, ../../scss/app.scss */
+/* line 35, ../../scss/app.scss */
 .text-hide {
   text-indent: -9999px;
 }
 
-/* line 35, ../../scss/app.scss */
+/* line 36, ../../scss/app.scss */
 .form-field {
   margin-bottom: 15px;
 }
 
 /* Small Text: I give GoPage permis: */
-/* line 37, ../../scss/app.scss */
+/* line 38, ../../scss/app.scss */
 .small-text {
   font-family: "Raleway", sans-serif;
   font-size: 12px;
@@ -91,36 +96,41 @@ header, footer, section {
 }
 
 /*links */
-/* line 39, ../../scss/app.scss */
+/* line 40, ../../scss/app.scss */
 a {
   color: #535353;
 }
 
-/* line 40, ../../scss/app.scss */
+/* line 41, ../../scss/app.scss */
 .form-field a {
   color: #535353;
   text-decoration: underline;
   transition: all 0.6s linear;
 }
 
-/* line 41, ../../scss/app.scss */
+/* line 42, ../../scss/app.scss */
 section a:hover {
   color: #f59125;
 }
 
-/* line 42, ../../scss/app.scss */
+/* line 43, ../../scss/app.scss */
 .login {
   position: relative;
 }
-/* line 44, ../../scss/app.scss */
+/* line 45, ../../scss/app.scss */
 .login a {
   color: #fff;
+  font-size: 16px;
 }
-/* line 45, ../../scss/app.scss */
+/* line 46, ../../scss/app.scss */
+.login a.login-link {
+  padding: 9px 30px;
+}
+/* line 47, ../../scss/app.scss */
 .login a.username {
   text-decoration: underline;
 }
-/* line 46, ../../scss/app.scss */
+/* line 48, ../../scss/app.scss */
 .login a.logout-link {
   position: absolute;
   bottom: 0;
@@ -129,12 +139,12 @@ section a:hover {
 }
 
 /* Why Work With GoPage: */
-/* line 49, ../../scss/app.scss */
+/* line 51, ../../scss/app.scss */
 header h1 {
   color: #FFFFFF;
 }
 
-/* line 50, ../../scss/app.scss */
+/* line 52, ../../scss/app.scss */
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 32px;
@@ -142,7 +152,7 @@ h1 {
   letter-spacing: 1.77px;
 }
 
-/* line 51, ../../scss/app.scss */
+/* line 53, ../../scss/app.scss */
 h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
@@ -152,7 +162,7 @@ h2 {
 }
 
 /* Lorem ipsum dolor si:  Color (icon heading): #7AC846; */
-/* line 54, ../../scss/app.scss */
+/* line 56, ../../scss/app.scss */
 h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
@@ -161,13 +171,13 @@ h3 {
   line-height: 26px;
 }
 
-/* line 55, ../../scss/app.scss */
+/* line 57, ../../scss/app.scss */
 h4 {
   font-size: 18px;
 }
 
 /* Form Heading Text: Your Name: */
-/* line 58, ../../scss/app.scss */
+/* line 60, ../../scss/app.scss */
 form label {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -175,7 +185,7 @@ form label {
   letter-spacing: 0;
 }
 
-/* line 59, ../../scss/app.scss */
+/* line 61, ../../scss/app.scss */
 form input[type='text'], form input[type='file'], form input[type='password'], form textarea, form select {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -184,28 +194,28 @@ form input[type='text'], form input[type='file'], form input[type='password'], f
   margin-bottom: 0;
 }
 
-/* line 60, ../../scss/app.scss */
+/* line 62, ../../scss/app.scss */
 form input[type='file'] {
   background-color: transparent;
 }
 
-/* line 61, ../../scss/app.scss */
-form .row {
+/* line 63, ../../scss/app.scss */
+form.signupform .row {
   margin-bottom: 38px;
 }
 
 /* styles */
-/* line 63, ../../scss/app.scss */
+/* line 65, ../../scss/app.scss */
 section#outerMost {
   max-width: 1438px;
-  margin: 0 auto;
+  margin: 0 auto 2.25rem;
 }
-/* line 65, ../../scss/app.scss */
+/* line 67, ../../scss/app.scss */
 section#outerMost > .row {
   max-width: 100%;
 }
 
-/* line 67, ../../scss/app.scss */
+/* line 69, ../../scss/app.scss */
 .logo {
   float: left;
   background: url(../style_assets/logo.png) no-repeat;
@@ -214,33 +224,33 @@ section#outerMost > .row {
   height: 43px;
 }
 
-/* line 68, ../../scss/app.scss */
+/* line 70, ../../scss/app.scss */
 #usj-landing header {
   background: url(../style_assets/USJ-header-image.jpg) no-repeat;
   background-size: cover;
 }
 
 /* header:before{ content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -0.25em; } Adjusts for spacing  */
-/* line 70, ../../scss/app.scss */
+/* line 72, ../../scss/app.scss */
 header {
   background-image: url(../style_assets/USJ-header-image.jpg);
   height: 440px;
   background-size: cover;
 }
-/* line 73, ../../scss/app.scss */
+/* line 75, ../../scss/app.scss */
 header .head-wrap {
   background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
 }
-/* line 74, ../../scss/app.scss */
+/* line 76, ../../scss/app.scss */
 header .top-bar {
   max-width: 1158px;
   margin: 0 auto;
   padding: 35px 0 0 0;
   background-color: transparent;
 }
-/* line 76, ../../scss/app.scss */
+/* line 78, ../../scss/app.scss */
 header .slogan {
   color: #fff;
   position: absolute;
@@ -251,11 +261,11 @@ header .slogan {
   max-width: 80%;
   margin: 0 auto;
 }
-/* line 78, ../../scss/app.scss */
+/* line 80, ../../scss/app.scss */
 header .slogan .yellow {
   text-transform: uppercase;
 }
-/* line 80, ../../scss/app.scss */
+/* line 82, ../../scss/app.scss */
 header .login {
   float: right;
   margin-top: 7px;
@@ -265,13 +275,13 @@ header .login {
   letter-spacing: 0.8px;
 }
 
-/* line 83, ../../scss/app.scss */
+/* line 85, ../../scss/app.scss */
 section.feature-video #main-video {
   width: 100%;
   /* background:url(../style_assets/video-image.jpg) no-repeat; background-size: cover; */
 }
 
-/* line 89, ../../scss/app.scss */
+/* line 91, ../../scss/app.scss */
 #content {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
@@ -282,49 +292,54 @@ section.feature-video #main-video {
   max-width: 1190px;
   margin: 0 auto;
 }
-/* line 90, ../../scss/app.scss */
+/* line 92, ../../scss/app.scss */
 #content ul {
   margin-left: 30px;
   margin-right: 15px;
 }
 
-/* line 92, ../../scss/app.scss */
+/* line 94, ../../scss/app.scss */
 #content .blocks {
   margin: 80px auto 94px;
   max-width: 1180px;
+  /* .col-1{ background: url(../style_assets/flexible-job-icon.png) center top no-repeat; } */
 }
-/* line 94, ../../scss/app.scss */
+/* line 96, ../../scss/app.scss */
 #content .blocks h4 {
   color: #7bc846;
 }
-/* line 95, ../../scss/app.scss */
-#content .blocks > .columns {
-  padding-top: 228px;
+/* line 98, ../../scss/app.scss */
+#content .blocks .img-col {
+  padding-bottom: 1.25rem;
 }
-/* line 96, ../../scss/app.scss */
-#content .blocks .col-1 {
-  background: url(../style_assets/flexible-job-icon.png) center top no-repeat;
+/* line 99, ../../scss/app.scss */
+#content .blocks .img-col .img-wrap {
+  min-height: 180px;
 }
-/* line 97, ../../scss/app.scss */
+/* line 100, ../../scss/app.scss */
+#content .blocks .img-col img {
+  padding-bottom: 1.25rem;
+}
+/* line 103, ../../scss/app.scss */
 #content .blocks .col-2 {
   background: url(../style_assets/great-pay-icon.png) center top no-repeat;
 }
-/* line 98, ../../scss/app.scss */
+/* line 104, ../../scss/app.scss */
 #content .blocks .col-3 {
   background: url(../style_assets/recurring-revenues-icon.png) center top no-repeat;
 }
 
 /* form page */
-/* line 103, ../../scss/app.scss */
+/* line 109, ../../scss/app.scss */
 #signup header {
   background: url(../style_assets/form-header-image.jpg) no-repeat;
   background-size: cover;
 }
-/* line 104, ../../scss/app.scss */
+/* line 110, ../../scss/app.scss */
 #signup header .slogan {
   padding-top: 5%;
 }
-/* line 106, ../../scss/app.scss */
+/* line 112, ../../scss/app.scss */
 #signup #content {
   margin: 0 auto;
   padding: 50px 0 0;
@@ -332,16 +347,20 @@ section.feature-video #main-video {
 }
 
 /* video page */
-/* line 112, ../../scss/app.scss */
+/* line 118, ../../scss/app.scss */
 #videopage header {
   background-image: url(../style_assets/video-submission-header-image.jpg);
   background-repeat: none;
 }
-/* line 113, ../../scss/app.scss */
+/* line 119, ../../scss/app.scss */
 #videopage .form-field {
   margin-bottom: 30px;
 }
-/* line 114, ../../scss/app.scss */
+/* line 120, ../../scss/app.scss */
+#videopage .form-field input.video-link {
+  margin-top: 15px;
+}
+/* line 122, ../../scss/app.scss */
 #videopage #content {
   max-width: 1190px;
   margin: 0 auto;
@@ -349,43 +368,43 @@ section.feature-video #main-video {
 }
 
 /* login page */
-/* line 118, ../../scss/app.scss */
+/* line 127, ../../scss/app.scss */
 #loginpage header form {
   text-align: left;
   max-width: 400px;
   margin: 0 auto;
 }
-/* line 119, ../../scss/app.scss */
+/* line 128, ../../scss/app.scss */
 #loginpage header form label {
   color: #fff;
 }
 
-/* line 124, ../../scss/app.scss */
+/* line 133, ../../scss/app.scss */
 footer {
   border-top: 10px solid #f69b26;
   background-color: #535353;
   padding: 40px 0 28px;
   color: #fff;
 }
-/* line 125, ../../scss/app.scss */
+/* line 134, ../../scss/app.scss */
 footer > .row {
   max-width: 1188px;
   margin: 0 auto;
 }
-/* line 126, ../../scss/app.scss */
+/* line 135, ../../scss/app.scss */
 footer #social_list {
   list-style: none;
   margin: 0;
 }
-/* line 127, ../../scss/app.scss */
+/* line 136, ../../scss/app.scss */
 footer #social_list li {
   float: left;
 }
-/* line 128, ../../scss/app.scss */
+/* line 137, ../../scss/app.scss */
 footer #social_list a {
   color: #fff;
 }
-/* line 129, ../../scss/app.scss */
+/* line 138, ../../scss/app.scss */
 footer #social_list a span {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
@@ -401,44 +420,44 @@ footer #social_list a span {
   text-align: center;
   transition: all .5s linear;
 }
-/* line 142, ../../scss/app.scss */
+/* line 151, ../../scss/app.scss */
 footer .go-back {
   background: url(../style_assets/b2gp-button.jpg) no-repeat;
   width: 260px;
   height: 134px;
   text-indent: -9999px;
 }
-/* line 143, ../../scss/app.scss */
+/* line 152, ../../scss/app.scss */
 footer .footer-links {
   padding-top: 40px;
   padding-bottom: 35px;
 }
-/* line 144, ../../scss/app.scss */
+/* line 153, ../../scss/app.scss */
 footer .footer-links h4 {
   color: #a2c538;
   font-weight: 600;
   padding-bottom: 10px;
 }
-/* line 145, ../../scss/app.scss */
+/* line 154, ../../scss/app.scss */
 footer .footer-links ul {
   list-style: none;
   margin: 0;
 }
-/* line 146, ../../scss/app.scss */
+/* line 155, ../../scss/app.scss */
 footer .footer-links li {
   font-size: 14px;
   line-height: 25px;
 }
-/* line 147, ../../scss/app.scss */
+/* line 156, ../../scss/app.scss */
 footer .footer-links a {
   color: #fff;
   transition: all 0.6s linear;
 }
-/* line 148, ../../scss/app.scss */
+/* line 157, ../../scss/app.scss */
 footer .footer-links a:hover {
   color: #f59125;
 }
-/* line 150, ../../scss/app.scss */
+/* line 159, ../../scss/app.scss */
 footer .copyright {
   font-family: "Raleway", sans-serif;
   font-size: 12px;
@@ -446,41 +465,69 @@ footer .copyright {
 
 /* custom */
 @media only screen and (max-width: 1440px) {
-  /* line 156, ../../scss/app.scss */
+  /* line 165, ../../scss/app.scss */
   section.feature-video #main-video, section.feature-video #usj-landing header {
     background-size: contain;
+  }
+}
+/* desktop only */
+@media only screen and (min-width: 64em) {
+  /* line 175, ../../scss/app.scss */
+  #content .blocks .img-col {
+    height: auto;
   }
 }
 /* tab and smaller */
 /* form page */
 @media only screen and (max-width: 64em) {
-  /* line 165, ../../scss/app.scss */
+  /* line 183, ../../scss/app.scss */
   #signup .city {
     margin-top: 38px;
   }
-}
-/* tablet only */
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  /* line 172, ../../scss/app.scss */
+
+  /* line 187, ../../scss/app.scss */
   #content .blocks .columns {
     padding-bottom: 2.25rem;
   }
 }
+/* tablet only */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  /* line 202, ../../scss/app.scss */
+  #content .blocks .columns {
+    padding-bottom: 2.25rem;
+  }
+  /* line 203, ../../scss/app.scss */
+  #content .blocks .img-col {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 /* small screen only */
 @media only screen and (max-width: 40.063em) {
-  /* line 177, ../../scss/app.scss */
+  /* line 208, ../../scss/app.scss */
+  .blocks > .columns {
+    margin-bottom: 2.25rem;
+  }
+
+  /* line 210, ../../scss/app.scss */
   footer .footer-links .columns, footer .social-media {
     padding-top: 1.25rem;
+  }
+
+  /* line 212, ../../scss/app.scss */
+  input[type='submit'] {
+    width: 100%;
   }
 }
 /* Retina-specific styles here */
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  /* line 189, ../../scss/app.scss */
+  /* line 225, ../../scss/app.scss */
   #usj-landing header {
     background-image: url(../style_assets/USJ-header-image-2x.jpg);
   }
 
-  /* line 190, ../../scss/app.scss */
+  /* line 226, ../../scss/app.scss */
   #signup header {
     background-image: url(../style_assets/form-header-image-2x.jpg);
   }

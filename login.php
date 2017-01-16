@@ -90,49 +90,60 @@ if(isset($_POST['btn-login']))
                 </div>
               </div>
               <div class="large-12 columns">
-                <input class="button yellow narrow" value="Login" name="btn-login" type="submit" />
+                <input class="button yellow narrow-1" value="Login" name="btn-login" type="submit" />
+               
               </div>
 
               </div>
+              
             </div>
+            
           </form>
+          
         </div>
       </div>
     </header>
-
-    <section id="outerMost">
-      <div class="row" id="content">
+	<section class="row" id="content">
         <div class="large-12 columns">
-        		
           <div class="row">
             <div class="large-12 columns text-center">
-              <a href="signup.php" class="button yellow wide">Apply Now</a>
+              <a  href="signup.php" class="button yellow wide">Apply Now</a>
             </div>
           </div>
           <div class="row blocks">
             <div class="large-4 columns text-center col-1">
-                <h4>Flexible Job</h4>
-                <p>Work according to your own schedule, from fulltime to part time. The more time you invest, the more you'll succeed. "Be your own Boss."</p>
+            	 <div class="text-center img-col">
+            	 	<div class="img-wrap"><img src="dist/style_assets/flexible-job-icon.png" /></div>
+                	<h4>Flexible Job</h4>
+                	<p>Work according to your own schedule, from fulltime to part time. The more time you invest, the more you'll succeed. "Be your own Boss."</p>
+                </div>
             </div>
             <div class="large-4 columns text-center col-2">
-                <h4>Great Pay</h4>
-                <p>Earn agressive sign-up bonuses for every business brought on board. Unlike most jobs. GoPage pays you based on results. Themore business you generate, the more you make. There are no caps on how much you can earn.</p>
+            	 <div class="text-center img-col">
+            	 	<div class="img-wrap"><img src="dist/style_assets/great-pay-icon.png" /></div>
+                	<h4>Great Pay</h4>
+                	<p>Earn agressive sign-up bonuses for every business brought on board. Unlike most jobs. GoPage pays you based on results. Themore business you generate, the more you make. There are no caps on how much you can earn.</p>
+                </div>  	
             </div>
             <div class="large-4 columns text-center col-3">
-                <h4>Recurring Revenues</h4>
-                <p>Earn an additional 20% ongoing monthly residual on each business you on-board for up to three years.</p>
+              	<div class="text-center img-col">
+              		 <div class="img-wrap"><img src="dist/style_assets/recurring-revenues-icon.png" /></div>
+	                <h4>Recurring Revenues</h4>
+   	             <p>Earn an additional 20% ongoing monthly residual on each business you on-board for up to three years.</p>
+                </div>
             </div>
 
           </div>
           <div class="row">
             <div class="large-12 columns text-center">
-              <a class="button yellow wide">Apply Now</a>
+              <a href="signup.php" class="button yellow wide">Apply Now</a>
             </div>
           </div>
 
 
       </div>
     </section>
+    
   </section>
   <footer >
       <div class="row">

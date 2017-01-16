@@ -247,7 +247,7 @@ if(isset($_POST['signup-submit'])) {
 				}    
 				if(!$userok){    
         ?>
-          <form  method="post" enctype="multipart/form-data" name="signupform">
+          <form  method="post" enctype="multipart/form-data" name="signupform" class="signupform">
             <div class="row ">
               <div class="large-6 columns">
                 <div class="row">

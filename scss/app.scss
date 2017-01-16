@@ -23,12 +23,13 @@ $font-raleway: 'Raleway', sans-serif;
 body{ font:100% $font-stack; background:transparent; }
 header, footer, section{ position: relative; }
 .button{ @include border-radius(2px); font-family: $font-montserrat; font-size: 22px; color: #FFFFFF; letter-spacing: 1.6px; }
-.yellow{ background: #f89a26; font-weight:bold; color: #fff; text-transform: uppercase; }
+.yellow{ background: #f89a26;  font-weight:bold; color: #fff; text-transform: uppercase; }
 .button.yellow:hover{ background-color: #f89a26; color:#000; }
 .style-trans{ background-color: transparent; border: 1px solid #fff; padding:15px 30px;}
 .button.style-trans:hover{ background-color: transparent; }
 .wide{ padding:1rem 17.5%; }
 .narrow{ padding:1rem 3rem; }
+.narrow-1{ padding:0.5rem 2rem; }
 .row{ max-width:100%; }
 .limit-width{ max-width:1158px; }
 .text-hide{ text-indent: -9999px; }
@@ -41,7 +42,8 @@ a{ color: #535353; }
 section a:hover{ color:#f59125; }
 .login{
 	position:relative;
- 	a{ color:#fff; }
+ 	a{ color:#fff; font-size:16px;}
+ 	a.login-link{ padding: 9px 30px;  }
  	a.username{ text-decoration:underline; }
  	a.logout-link{ position:absolute; bottom:0; width: 90px; top: 20px; }
 }
@@ -58,10 +60,10 @@ h4{ font-size: 18px; }
 form label{ font-family: $font-montserrat; font-size: 16px; color: #535353; letter-spacing: 0; }
 form input[type='text'], form input[type='file'], form input[type='password'], form textarea, form select{ @include border-radius(4px); margin-bottom: 0; }
 form input[type='file']{ background-color:transparent; }
-form .row{ margin-bottom: 38px; }
+form.signupform .row{ margin-bottom: 38px; }
 /* styles */
 section#outerMost{
-	max-width:$outer-width; margin:0 auto;
+	max-width:$outer-width; margin:0 auto 2.25rem;
 	> .row{ max-width:100%; }
 }
 .logo{ float:left; background: url(../style_assets/logo.png) no-repeat; text-indent:-9999px; width:139px; height:43px; }
@@ -92,8 +94,12 @@ section.feature-video{
 #content .blocks{
   margin:80px auto 94px; max-width:1180px;
   h4{ color:#7bc846; }
-  > .columns{ padding-top:228px; }
-  .col-1{ background: url(../style_assets/flexible-job-icon.png) center top no-repeat; }
+  > .columns{  }
+  .img-col{ padding-bottom:1.25rem;
+  		.img-wrap{ min-height:180px; }
+		img{  padding-bottom:1.25rem; }  
+   }
+  /* .col-1{ background: url(../style_assets/flexible-job-icon.png) center top no-repeat; } */
   .col-2{ background: url(../style_assets/great-pay-icon.png) center top no-repeat; }
   .col-3{ background: url(../style_assets/recurring-revenues-icon.png) center top no-repeat; }
 }
@@ -110,8 +116,11 @@ section.feature-video{
 /* video page */
 #videopage{
   header{  background-image: url(../style_assets/video-submission-header-image.jpg); background-repeat: none; }
-  .form-field{ margin-bottom:30px; }
+  .form-field{ margin-bottom:30px; 
+		input.video-link { margin-top:15px; }  
+  }
   #content{ max-width:1190px; margin:0 auto; padding:50px 0 0; }
+  
 }
 /* login page */
 #loginpage{
@@ -159,22 +168,49 @@ footer{ border-top:10px solid #f69b26; background-color:#535353; padding: 40px 0
   }
 }
 
+
+/* desktop only */
+@media only screen and (min-width: 64em) {
+  	#content .blocks{  
+  		.img-col{ height:auto;  }
+  	}
+}
+
+
 /* tab and smaller */
 /* form page */
 @media only screen and (max-width: 64em) {
   #signup .city{
     margin-top:38px;
   }
+  #content .blocks{
+   .columns{  
+  		padding-bottom:2.25rem;
+  	}
+  	
+  } 	
+  	 
 }  
+
+
   /* tablet only */
 
   @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-    #content .blocks .columns{ padding-bottom:2.25rem; }
+  
+
+    #content .blocks{ 
+    	.columns{ padding-bottom:2.25rem; }    
+    	.img-col{ width:75%; margin-left:auto; margin-right:auto; }
+    }
   }
   /* small screen only */
   @media only screen and (max-width: 40.063em) {
+  	 .blocks > .columns { margin-bottom:2.25rem; }
     footer{
       .footer-links .columns, .social-media{ padding-top:1.25rem; }
+    }
+    input[type='submit']{
+		width:100%;    
     }
   }
 
