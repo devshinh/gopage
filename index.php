@@ -93,7 +93,13 @@ if(isset($_POST['btn-login']))
 
       <section class="row feature-video">
         <div class="large-12 columns">
-          <div id="main-video" > </div>
+          <div id="main-video" >
+				<video width="100%" controls>
+  					<source src="dist/video/USJ-Video.mp4" type="video/mp4">
+  					
+  						Your browser does not support HTML5 video.
+				</video>          
+           </div>
         </div>
       </section>
 
