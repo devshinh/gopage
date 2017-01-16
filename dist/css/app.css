@@ -97,12 +97,13 @@ header, footer, section {
 
 /* line 39, ../../scss/app.scss */
 .feature-video {
-  max-height: 575px;
+  max-height: 480px;
   min-height: 220px;
+  margin-top: 1.25rem;
 }
 /* line 40, ../../scss/app.scss */
 .feature-video video {
-  max-height: 575px;
+  max-height: 480px;
   min-height: 220px;
 }
 
