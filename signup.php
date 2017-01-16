@@ -4,6 +4,7 @@ require_once 'library/class.user.php';
 
 $reg_user = new USER();
 $userok = 0;
+$state = "";
 if($reg_user->is_logged_in()!="")
 {
 	//$reg_user->redirect('index.php');
@@ -24,9 +25,13 @@ function validateData(){
 	$error = array();
 	$validateArr = array();
 	if($_POST['password'] != $_POST['confirmpassword'] ){
-		$error['password'] = 1;
+		$error['code'] = 'password';
+		$error['text'] = 'Passwords should match.';
 	}
-	
+	if(strlen(trim($_POST['password'])) < 6 ) {
+		$error['code'] = 'password';
+		$error['text'] = 'Password should be atleast 6 characters long.';	
+	}
 	
 	return $error;
 }	
@@ -34,12 +39,16 @@ function validateData(){
 function getError($err, $msg = ''){
 	
 	switch($err){
-		case 1: 
-			$text = "<strong>Error !</strong>  Password do not match";
+		case 'password':
+			if($msg != '') {								
+				$text = $msg;
+			}else {
+				$text = "Please check your password.";	
+			}				
 		break;
 		
 		case 2:
-			$text = "<strong>Sorry !</strong>  email allready exists , Please Try another one";
+			$text = "<strong>Sorry !</strong>  email already exists , Please Try another one";
 		break;
 		
 		case 3:
@@ -102,13 +111,30 @@ function uploadFile(){
 		
 }
 
+function getStateList($stateUser = NULL){
+	$selected = $stateList = "";
+	$selectorState = array('Alberta', 'British Columbia'); 
+  
+   foreach($selectorState as $state){
+   	
+		if($stateUser == $state) {			
+			$selected = "selected";
+		}else {
+			$selected = "";
+		}	
+			$stateList .= '<option value="'.$state.'" '.$selected.' >'.$state.'</option>';			   
+   }
+	return $stateList;
+} 
+
+
+	
 if(isset($_POST['signup-submit'])) {
 	$msg = $resumeName = $emailoptin = "";
 	
 	$validateArr = validateData();
-	
-		
-// vars set
+			
+	// vars set
 	$fname = strip_tags($_POST['firstname']);
 	$lname = strip_tags($_POST['lastname']);
 	$coverletter = strip_tags($_POST['coverletter']);
@@ -121,10 +147,12 @@ if(isset($_POST['signup-submit'])) {
 	$password = strip_tags($_POST['password']);
 	$emailoptin = $emailoptin;
 	$code = md5(uniqid(rand()));
-	// vers set end		
+	// vars set end		
 		
-	if(count($validateArr) > 0 ){
-		$msg = getError(1);		
+	//$stateList = getStateList($state);	
+		
+	if(count($validateArr) > 0 ){		
+		$msg = getError($validateArr['code'], $validateArr['text']);		
 	} else {		
 		$valuelist = '';
 		$user_field_arr = get_user_fields();
@@ -137,23 +165,6 @@ if(isset($_POST['signup-submit'])) {
 		$emailoptin = 0;	
 	}
 
-
-	
-	/*
-	$fname = $DBcon->real_escape_string($fname);
-	$lname = $DBcon->real_escape_string($lname);
-	$coverletter = $DBcon->real_escape_string($coverletter);
-	$state = $DBcon->real_escape_string($state);
-	$city = $DBcon->real_escape_string($city);	
-	$zip = $DBcon->real_escape_string($zip);
-	$resumefile = strip_tags($_POST['resumefile']);
-	$phone = $DBcon->real_escape_string($phone);
-	$email = $DBcon->real_escape_string($email);
-	$password = $DBcon->real_escape_string($password);
-	$emailoptin = $DBcon->real_escape_string($emailoptin);
-	*/
-	//$hashed_password = password_hash($password, PASSWORD_DEFAULT); // this function works only in PHP 5.5 or latest version
-	
 	
 	
 	$stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE email=:email");
@@ -267,9 +278,13 @@ if(isset($_POST['signup-submit'])) {
                 </div>
                 <div class="row">
                   <div class="large-6 columns">
-                    <label for="name">State/Province <select name="state" required ><option value="0" >Select State</option>
-							<option value="BC" >British Columbia</option>                    
-                    </select> </label>
+                    <label for="name">State/Province <select name="state" required >
+                    	<option value="">Select State</option>
+                    	<?php 
+            				echo getStateList($state);      	
+				                   	
+                    	?>							                    
+                    </select> </label>                    
                   </div>
 
                   <div class="large-6 columns city">

@@ -78,14 +78,14 @@ if(isset($_POST['btn-login']))
               <div class="large-6 columns">
                 <div class="form-field">
                   <label for="email">Email:
-                    <input name="email" type="text" placeholder="Email ID" />
+                    <input name="email" type="email" placeholder="Email ID" maxlength="60" />
                   </label>
                 </div>
               </div>
               <div class="large-6 columns">
                 <div class="form-field">
                   <label for="password">Password:
-                    <input name="password" type="password" />
+                    <input name="password" type="password" maxlength="60" />
                   </label>
                 </div>
               </div>
