@@ -17,24 +17,11 @@ $font-raleway: 'Raleway', sans-serif;
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
-/* test styles */
 
-.callout {
-	@include border-radius(8px); border:3px solid yellow;
-}
-.message-box{
-	@extend .message;
-	font-size:16px;
-}
-
-/* extensions */
-.message { border: 1px solid green; padding: 10px; color: #333; }
 /* global styles */
 
-body{
-	font:100% $font-stack;
-	background:transparent;
-}
+body{ font:100% $font-stack; background:transparent; }
+header, footer, section{ position: relative; }
 .button{ @include border-radius(2px); font-family: $font-montserrat; font-size: 22px; color: #FFFFFF; letter-spacing: 1.6px; }
 .yellow{ background: #f89a26; font-weight:bold; color: #fff; text-transform: uppercase; }
 .button.yellow:hover{ background-color: #f89a26; color:#000; }
@@ -45,7 +32,19 @@ body{
 .row{ max-width:100%; }
 .limit-width{ max-width:1158px; }
 .text-hide{ text-indent: -9999px; }
-
+.form-field{ margin-bottom:15px; }
+/* Small Text: I give GoPage permis: */
+.small-text{ font-family: $font-raleway; font-size: 12px; color: #373A3C; line-height: 13px; }
+/*links */
+a{ color: #535353; }
+.form-field a{ color: #535353; text-decoration: underline; transition:all 0.6s linear; }
+section a:hover{ color:#f59125; }
+.login{
+	position:relative;
+ 	a{ color:#fff; }
+ 	a.username{ text-decoration:underline; }
+ 	a.logout-link{ position:absolute; bottom:0; width: 90px; top: 20px; }
+}
 /* Why Work With GoPage: */
 header h1{ color: #FFFFFF; }
 h1{  font-family: $font-montserrat; font-size: 32px; color: #F89A26; letter-spacing: 1.77px; }
@@ -54,14 +53,11 @@ h2{ font-family: $font-montserrat; font-size: 24px; color: #F89A26; letter-spaci
 /* Lorem ipsum dolor si:  Color (icon heading): #7AC846; */
 h3{ font-family: $font-montserrat; font-size: 24px; color: #F89A26; letter-spacing: 0; line-height: 26px; }
 h4{ font-size: 18px; }
-/* Small Text: I give GoPage permis: */
-.small-text{ font-family: $font-raleway; font-size: 12px; color: #373A3C; line-height: 13px; }
 
 /* Form Heading Text: Your Name: */
-form label{
-  font-family: $font-montserrat; font-size: 16px; color: #535353; letter-spacing: 0;
-}
-form input[type='text'], form input[type='password'], form textarea, form select{ @include border-radius(4px); margin-bottom: 0; }
+form label{ font-family: $font-montserrat; font-size: 16px; color: #535353; letter-spacing: 0; }
+form input[type='text'], form input[type='file'], form input[type='password'], form textarea, form select{ @include border-radius(4px); margin-bottom: 0; }
+form input[type='file']{ background-color:transparent; }
 form .row{ margin-bottom: 38px; }
 /* styles */
 section#outerMost{
@@ -69,27 +65,30 @@ section#outerMost{
 	> .row{ max-width:100%; }
 }
 .logo{ float:left; background: url(../style_assets/logo.png) no-repeat; text-indent:-9999px; width:139px; height:43px; }
-#usj-landing header{
-  background:rgba(0,0,0,0.4) url(../style_assets/USJ-header-image.jpg) no-repeat; background-size: cover;
-}
+#usj-landing header{  background: url(../style_assets/USJ-header-image.jpg) no-repeat; background-size: cover; }
+/* header:before{ content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -0.25em; } Adjusts for spacing  */
 header{
+    background-image: url(../style_assets/USJ-header-image.jpg);
     height:440px; background-size: cover;
+    .head-wrap{ background-color: rgba(0,0,0,0.4); width: 100%; height:100%; }
     .top-bar{ max-width: 1158px; margin: 0 auto; padding:35px 0 0 0; background-color: transparent;}
-    .slogan{ color:#fff;
-     .yellow{ text-transform: uppercase; }
-    }
 
+    .slogan{ color:#fff;
+      position: absolute; top:50%; left:0; right:0; transform: translateY(-50%); max-width:80%; margin:0 auto;
+      .yellow{ text-transform: uppercase; }
+    }
     .login{ float:right; margin-top:7px; font-family: $font-montserrat;  font-size: 16px; color: #FFFFFF; letter-spacing: 0.8px; }
 }
 section.feature-video{
   #main-video{
-      height: 572px; width:100%;
-      background:url(../style_assets/video-image.jpg) no-repeat;
-      background-size: cover;
+      width:100%;
+      /* background:url(../style_assets/video-image.jpg) no-repeat; background-size: cover; */
   }
 }
 
-section#content{ font-family: $font-raleway; font-size: 16px; color: #535353; letter-spacing: 0; line-height: 24px; padding:57px 0 95px; }
+#content{ font-family: $font-raleway; font-size: 16px; color: #535353; letter-spacing: 0; line-height: 24px; padding:57px 0 95px; max-width:1190px; margin:0 auto;
+  ul{ margin-left:30px; margin-right:15px; }
+}
 #content .blocks{
   margin:80px auto 94px; max-width:1180px;
   h4{ color:#7bc846; }
@@ -100,9 +99,28 @@ section#content{ font-family: $font-raleway; font-size: 16px; color: #535353; le
 }
 
 /* form page */
-#signup #content{
-  max-width:1190px; margin:0 auto;
+#signup{
+   header { background: url(../style_assets/form-header-image.jpg) no-repeat; background-size:cover;
+     .slogan{ padding-top:5%; }
+   }
+  #content{
+    margin:0 auto; padding:50px 0 0; max-width:1158px;
+  }
 }
+/* video page */
+#videopage{
+  header{  background-image: url(../style_assets/video-submission-header-image.jpg); background-repeat: none; }
+  .form-field{ margin-bottom:30px; }
+  #content{ max-width:1190px; margin:0 auto; padding:50px 0 0; }
+}
+/* login page */
+#loginpage{
+  header form{ text-align: left; max-width:400px; margin:0 auto;
+    label{ color: #fff; }
+  }
+}
+
+
 footer{ border-top:10px solid #f69b26; background-color:#535353; padding: 40px 0 28px; color:#fff;
   > .row{ max-width: 1188px; margin:0 auto; }
   #social_list{ list-style: none; margin:0;
@@ -122,7 +140,7 @@ footer{ border-top:10px solid #f69b26; background-color:#535353; padding: 40px 0
     }
   }
   .go-back{ background: url(../style_assets/b2gp-button.jpg) no-repeat; width:260px; height:134px; text-indent:-9999px; }
-  .footer-links{ padding:40px 0 35px;
+  .footer-links{ padding-top:40px; padding-bottom:35px;
     h4{ color: #a2c538; font-weight: 600; padding-bottom: 10px; }
     ul{ list-style: none; margin:0; }
     li{ font-size: 14px; line-height: 25px; }
@@ -132,6 +150,33 @@ footer{ border-top:10px solid #f69b26; background-color:#535353; padding: 40px 0
   .copyright{ font-family: $font-raleway; font-size: 12px; }
 }
 
+/* custom */
+@media only screen and (max-width: 1440px) {
+  section.feature-video{
+    #main-video, #usj-landing header{
+        background-size: contain;
+    }
+  }
+}
+
+/* tab and smaller */
+/* form page */
+@media only screen and (max-width: 64em) {
+  #signup .city{
+    margin-top:38px;
+  }
+}  
+  /* tablet only */
+
+  @media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #content .blocks .columns{ padding-bottom:2.25rem; }
+  }
+  /* small screen only */
+  @media only screen and (max-width: 40.063em) {
+    footer{
+      .footer-links .columns, .social-media{ padding-top:1.25rem; }
+    }
+  }
 
    /* Retina-specific styles here */
  @media
@@ -141,7 +186,6 @@ footer{ border-top:10px solid #f69b26; background-color:#535353; padding: 40px 0
  only screen and (        min-device-pixel-ratio: 2),
  only screen and (                min-resolution: 192dpi),
  only screen and (                min-resolution: 2dppx) {
-   header{
-       background-image: url(../style_assets/USJ-header-image-2x.jpg) no-repeat; background-size: 100% 440px;
-   }
+   #usj-landing header{ background-image: url(../style_assets/USJ-header-image-2x.jpg); }
+   #signup header { background-image: url(../style_assets/form-header-image-2x.jpg); }
  }
