@@ -145,73 +145,12 @@ if(isset($_POST['btn-login']))
     </section>
     
   </section>
-  <footer >
-      <div class="row">
-        <div class="small-12 medium-6 large-9 columns">
-          <div class="row1">
-            <a href="/" class="logo ">Logo</a>
-          </div>
-        </div>
-        <div class="small-12 medium-6 large-3 columns social-media">
-          <div class="row1">
-            <ul id="social_list">
-                <li><a href="https://www.facebook.com/gopagelocalloyalty/" target="_blank"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
-                <li><a href="https://twitter.com/GoPageCo" target="_blank"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-                <li><a href="https://www.youtube.com/channel/UCs21ZcDTmrGQrSXZVPinKfQ" target="_blank"><span class="fa fa-youtube-play" aria-hidden="true"></span></a></li>
-                <li><a href="https://www.pinterest.com/thegopage/" target="_blank"><span class="fa fa-pinterest" aria-hidden="true"></span></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="large-12 footer-links columns">
-          <div class="row">
-            <div class="medium-6 large-3 columns">
-              <ul class="footer_list">
-                    <!--LIST HEADER-->
-                    <li><h4>New to GoPage?</h4></li>
-                    <li><a href="http://gopage.com/index.php/about">What is GoPage?</a></li>
-                    <li><a href="http://gopage.com/index.php/pages/register">Join GoPage Now!</a></li>
-                    <li><a href="http://gopage.com/index.php/guide">New Member Guide</a></li>
-                    <li><a href="http://gopage.com/index.php/smartapp">Mobile Member App</a></li>
-                </ul>
-            </div>
-            <div class="medium-6 large-3 columns">
-              <ul class="footer_list">
-                    <!--LIST HEADER-->
-                    <li><h4>Member Activities</h4></li>
-                    <li><a href="http://gopage.com/index.php/guide">Membership Overview</a></li>
-                    <li><a href="http://gopage.com/index.php/deals">About Deals</a></li><!-- NO ACTION! nothing new here-->
-                    <li><a href="http://gopage.com/index.php/dealsmap">Find Deals</a></li><!--NEW: Full page map showing all deals within a 25 km circle from GoPage businesses-->
-                    <li><a href="http://gopage.com/index.php/honeytips">Earn Points</a></li><!-- NO ACTION! Links to existing points explanation page.  More text required to explain how to earn points quicker and how to redeem points.-->
-                    <li><a href="http://gopage.com/index.php/rewards">Member Rewards</a></li> <!--NO ACTION! links to existing page that shows rewards-->
 
-                </ul>
-            </div>
-            <div class="medium-6 large-3 columns">
-              <ul class="footer_list">
-                    <!--LIST HEADER-->
-                    <li><h4>Information About GoPage</h4></li>
-                    <!-- This is a column for Library stuff.  References, contacts, facts etc. -->
-                    <li><a href="http://gopage.com/index.php/corporate">About GoPage?</a></li>
-                    <li><a href="http://gopage.com/index.php/contact">Contact GoPage</a></li>
-                    <li><a href="http://gopage.com/index.php/terms">Terms and Conditions</a></li>
-                    <li><a href="http://gopage.com/index.php/privacy">Privacy Policy</a></li>
-                    <li><a href="http://gopage.com/index.php/investors">Investor Relations</a></li>
-                    <li><a href="http://gopage.com/index.php/jobs">Careers At GoPage</a></li>
-                     <!--<li><a href="">Old Menu</a></li>-->
-
-                </ul>
-            </div>
-            <div class="medium-6 large-3 columns">
-              <a href="http://www.gopage.com/"><div class="go-back">Go back to GoPage.com</div></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="copyright large-12 columns">
-          Copyright &#169; 2014-2018 - GoPage Corporation. All Rights Reserved.
-        </div>
-      </div>
-    </footer>
+	<?php
+    
+    $footer = file_get_contents('./assets/sections/footer.html', FILE_USE_INCLUDE_PATH);
+    echo $footer; 
+    ?>
 
     <script src="js/vendor/jquery/dist/jquery.js"></script>
     <script src="js/vendor/what-input/dist/what-input.js"></script>

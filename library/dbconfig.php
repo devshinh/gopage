@@ -3,9 +3,9 @@ class Database
 {
      
     private $host = "localhost";
-    private $db_name = "go_page";
-    private $username = "root";
-    private $password = "pasS";
+    private $db_name = "gousj_careers";
+    private $username = "gousj_dbuser";
+    private $password = "GoUsj123#@!";
     public $conn;
      
     public function dbConnection()
