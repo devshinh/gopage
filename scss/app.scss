@@ -1,0 +1,230 @@
+@import 'settings';
+
+
+/* atul adds here */
+/* variables */
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$outer-width:1438px;
+
+$font-montserrat: 'Montserrat', sans-serif;
+$font-raleway: 'Raleway', sans-serif;
+
+/* mixins */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+/* global styles */
+
+body{ font:100% $font-stack; background:transparent; }
+header, footer, section{ position: relative; }
+.button{ @include border-radius(2px); font-family: $font-montserrat; font-size: 22px; color: #FFFFFF; letter-spacing: 1.6px; }
+.yellow{ background: #f89a26;  font-weight:bold; color: #fff; text-transform: uppercase; }
+.button.yellow:hover{ background-color: #f89a26; color:#000; }
+.style-trans{ background-color: transparent; border: 1px solid #fff; padding:15px 30px;}
+.button.style-trans:hover{ background-color: transparent; }
+.wide{ padding:1rem 17.5%; }
+.narrow{ padding:1rem 3rem; }
+.narrow-1{ padding:0.5rem 2rem; }
+.row{ max-width:100%; }
+.limit-width{ max-width:1158px; }
+.text-hide{ text-indent: -9999px; }
+.form-field{ margin-bottom:15px; }
+/* Small Text: I give GoPage permis: */
+.small-text{ font-family: $font-raleway; font-size: 12px; color: #373A3C; line-height: 13px; }
+.feature-video{ max-height:480px; min-height:220px; margin-top:1.25rem;
+	video{ max-height:480px; min-height:220px;  }
+ }
+/*links */
+a{ color: #535353; }
+.form-field a{ color: #535353; text-decoration: underline; transition:all 0.6s linear; }
+section a:hover{ color:#f59125; }
+.login{
+	position:relative;
+ 	a{ color:#fff; font-size:16px;}
+ 	a.login-link{ padding: 9px 30px;  }
+ 	a.username{ text-decoration:underline; }
+ 	a.logout-link{ position:absolute; bottom:0; width: 90px; top: 20px; }
+}
+/* Why Work With GoPage: */
+header h1{ color: #FFFFFF; }
+h1{  font-family: $font-montserrat; font-size: 32px; color: #F89A26; letter-spacing: 1.77px; }
+h2{ font-family: $font-montserrat; font-size: 24px; color: #F89A26; letter-spacing: 0; line-height: 26px;  }
+
+/* Lorem ipsum dolor si:  Color (icon heading): #7AC846; */
+h3{ font-family: $font-montserrat; font-size: 24px; color: #F89A26; letter-spacing: 0; line-height: 26px; }
+h4{ font-size: 18px; }
+
+/* Form Heading Text: Your Name: */
+form label{ font-family: $font-montserrat; font-size: 16px; color: #535353; letter-spacing: 0; }
+form input[type='text'], form input[type='file'], form input[type='password'], form textarea, form select{ @include border-radius(4px); margin-bottom: 0; }
+form input[type='file']{ background-color:transparent; }
+form.signupform .row{ margin-bottom: 38px; }
+/* styles */
+section#outerMost{
+	max-width:$outer-width; margin:0 auto 2.25rem;
+	> .row{ max-width:100%; }
+}
+.logo{ float:left; background: url(../style_assets/logo.png) no-repeat; text-indent:-9999px; width:139px; height:43px; }
+#usj-landing header{  background: url(../style_assets/USJ-header-image.jpg) no-repeat; background-size: cover; }
+/* header:before{ content: ''; display: inline-block; height: 100%; vertical-align: middle; margin-right: -0.25em; } Adjusts for spacing  */
+header{
+    background-image: url(../style_assets/USJ-header-image.jpg);
+    height:440px; background-size: cover;
+    .head-wrap{ background-color: rgba(0,0,0,0.4); width: 100%; height:100%; }
+    .top-bar{ max-width: 1158px; margin: 0 auto; padding:35px 0 0 0; background-color: transparent;}
+
+    .slogan{ color:#fff;
+      position: absolute; top:50%; left:0; right:0; transform: translateY(-50%); max-width:80%; margin:0 auto;
+      .yellow{ text-transform: uppercase; }
+    }
+    .login{ float:right; margin-top:7px; font-family: $font-montserrat;  font-size: 16px; color: #FFFFFF; letter-spacing: 0.8px; }
+}
+section.feature-video{
+  #main-video{
+      width:100%;
+      /* background:url(../style_assets/video-image.jpg) no-repeat; background-size: cover; */
+  }
+}
+
+#content{ font-family: $font-raleway; font-size: 16px; color: #535353; letter-spacing: 0; line-height: 24px; padding:57px 0 95px; max-width:1190px; margin:0 auto;
+  ul{ margin-left:30px; margin-right:15px; }
+}
+#content .blocks{
+  margin:80px auto 94px; max-width:1180px;
+  h4{ color:#7bc846; }
+  > .columns{  }
+  .img-col{ padding-bottom:1.25rem;
+  		.img-wrap{ min-height:180px; }
+		img{  padding-bottom:1.25rem; }  
+   }
+  /* .col-1{ background: url(../style_assets/flexible-job-icon.png) center top no-repeat; } */
+  .col-2{ background: url(../style_assets/great-pay-icon.png) center top no-repeat; }
+  .col-3{ background: url(../style_assets/recurring-revenues-icon.png) center top no-repeat; }
+}
+
+/* form page */
+#signup{
+   header { background: url(../style_assets/form-header-image.jpg) no-repeat; background-size:cover;
+     .slogan{ padding-top:5%; }
+   }
+  #content{
+    margin:0 auto; padding:50px 0 0; max-width:1158px;
+  }
+}
+/* video page */
+#videopage{
+  header{  background-image: url(../style_assets/video-submission-header-image.jpg); background-repeat: none; }
+  .form-field{ margin-bottom:30px; 
+		input.video-link { margin-top:15px; }  
+  }
+  #content{ max-width:1190px; margin:0 auto; padding:50px 0 0; }
+  
+}
+/* login page */
+#loginpage{
+  header form{ text-align: left; max-width:400px; margin:0 auto;
+    label{ color: #fff; }
+  }
+}
+
+
+footer{ border-top:10px solid #f69b26; background-color:#535353; padding: 40px 0 28px; color:#fff;
+  > .row{ max-width: 1188px; margin:0 auto; }
+  #social_list{ list-style: none; margin:0;
+    li{ float:left; }
+    a { color: #fff; }
+    a span{
+      @include border-radius(50px);
+      border: 2px solid #fff;
+      float: left;
+      font-size: 15px;
+      width: 40px;
+      height: 40px;
+      line-height: 37px;
+      margin: 0 5px;
+      text-align: center;
+      transition: all .5s linear;
+    }
+  }
+  .go-back{ background: url(../style_assets/b2gp-button.jpg) no-repeat; width:260px; height:134px; text-indent:-9999px; }
+  .footer-links{ padding-top:40px; padding-bottom:35px;
+    h4{ color: #a2c538; font-weight: 600; padding-bottom: 10px; }
+    ul{ list-style: none; margin:0; }
+    li{ font-size: 14px; line-height: 25px; }
+    a{ color:#fff; transition:all 0.6s linear; }
+    a:hover{ color:#f59125; }
+  }
+  .copyright{ font-family: $font-raleway; font-size: 12px; }
+}
+
+/* custom */
+@media only screen and (max-width: 1440px) {
+  section.feature-video{
+    #main-video, #usj-landing header{
+        background-size: contain;
+    }
+  }
+}
+
+
+/* desktop only */
+@media only screen and (min-width: 64em) {
+  	#content .blocks{  
+  		.img-col{ height:auto;  }
+  	}
+}
+
+
+/* tab and smaller */
+/* form page */
+@media only screen and (max-width: 64em) {
+  #signup .city{
+    margin-top:38px;
+  }
+  #content .blocks{
+   .columns{  
+  		padding-bottom:2.25rem;
+  	}
+  	
+  } 	
+  	 
+}  
+
+
+  /* tablet only */
+
+  @media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  
+
+    #content .blocks{ 
+    	.columns{ padding-bottom:2.25rem; }    
+    	.img-col{ width:75%; margin-left:auto; margin-right:auto; }
+    }
+  }
+  /* small screen only */
+  @media only screen and (max-width: 40.063em) {
+  	 .blocks > .columns { margin-bottom:2.25rem; }
+    footer{
+      .footer-links .columns, .social-media{ padding-top:1.25rem; }
+    }
+    input[type='submit']{
+		width:100%;    
+    }
+  }
+
+   /* Retina-specific styles here */
+ @media
+ only screen and (-webkit-min-device-pixel-ratio: 2),
+ only screen and (   min--moz-device-pixel-ratio: 2),
+ only screen and (     -o-min-device-pixel-ratio: 2/1),
+ only screen and (        min-device-pixel-ratio: 2),
+ only screen and (                min-resolution: 192dpi),
+ only screen and (                min-resolution: 2dppx) {
+   #usj-landing header{ background-image: url(../style_assets/USJ-header-image-2x.jpg); }
+   #signup header { background-image: url(../style_assets/form-header-image-2x.jpg); }
+ }

@@ -1,0 +1,229 @@
+<?php
+session_start();
+require_once 'library/class.user.php';
+$user_video = new USER();
+$msg= "";
+if($user_video->is_logged_in()!="")
+{	
+	$stmt = $user_video->runQuery("SELECT * FROM tbl_users WHERE user_id=:uid");
+	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	//$user_login->redirect('home.php');
+}
+
+function uploadFile(){
+	$target_dir = "uploads/video/";
+	$videoType = $_FILES["videofile"]["type"];
+	$videoSize = $_FILES["videofile"]["size"];
+	$filename = $_FILES["videofile"]["name"];
+		
+	$allowedVideoTypes = array('video/mp4', 'video/x-flv', 'video/x-flv', 'video/x-ms-wmv', 'application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword');
+	
+	$fileSizeLimit = 25000000;
+	
+	 $finfo = new finfo(FILEINFO_MIME_TYPE);
+    if (false === $ext = array_search(
+        $finfo->file($_FILES['videofile']['tmp_name']),
+        $allowedVideoTypes, true
+    )) {
+    		return array('error' => true, 'text' => 'Invalid file format.');
+        //throw new RuntimeException('Invalid file format.');
+    }
+     
+	// if(in_array($resumeType, $allowedResumeTypes) && ($resumeSize < $resumeSizeLimit)){
+	if( ($videoSize < $fileSizeLimit)){	
+		
+		$target_file = $target_dir . time() .'-'. basename($_FILES["videofile"]["name"]) ;
+		$video_filename = time() .'-'. basename($_FILES["videofile"]["name"]) ;
+		$uploadOk = 1;
+				
+		if (!move_uploaded_file( $_FILES['videofile']['tmp_name'],  $target_dir.$video_filename )
+    	) {
+    		return array('error' => true, 'text' => 'Failed to move uploaded file.');
+   	   // throw new RuntimeException('Failed to move uploaded file.');
+   	}
+    
+		return array('name' => $target_file, 'error' => false);
+	}else{
+		return array('error' => true);	
+	}
+		
+}
+
+if(isset($_POST['video-upload'])) {
+	$video_path = '';
+	
+	$video_link = strip_tags($_POST['videolink']);
+	$uid = $row['user_id'];
+	
+	if(isset($_FILES) && $_FILES['videofile']['size'] > 0){
+		$videoArr = uploadFile();
+		$videoError = $videoArr['error'];	
+		if(!$videoError){
+			$video_path = $videoArr['name'];
+			$user_video->videoadd($uid, $video_path, $video_link);		
+		}	
+	}elseif(($_FILES['videofile']['size'] == 0) && (strlen($video_link) == 0) ) {
+		$msg = "<div class='alert alert-success'> <p> Please upload file or enter video path</p></div>";
+	}else{
+			$user_video->videoadd($uid, $video_path, $video_link);
+	}	
+	
+}
+	
+	
+?>
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoPage Careers Video Form</title>
+    <link rel="stylesheet" href="dist/css/foundation.css">
+    <link rel="stylesheet" href="dist/css/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css">
+  </head>
+  <body id="videopage">
+    <header class="row">
+      <div class="head-wrap column">
+        <div class=" top-bar">
+          <div id="logo">
+            <a href="/" class="logo ">Logo</a>
+          </div>
+
+        </div>
+
+        <div class="large-12 columns text-center slogan">
+          <h1>Submit the perfect elevator pitch video</h1>
+          <p>Tell us why you think you are the ideal candidate for the ultimate summer job.</p>
+        </div>
+      </div>
+    </header>
+    <section id="outerMost">
+      <div class="row" id="content">
+        <div class="large-12 columns">
+        
+        	<?php if($user_video->is_logged_in()!=""){  echo $msg; ?>
+                     
+          <form action="video.php" method="post" enctype="multipart/form-data">
+            <div class="row ">
+              <div class="large-12 columns">
+                <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+                <p>Integer sit amet diam enim. Curabitur in sodales neque. Phasellus dictum ex sit amet sapien scelerisque viverra.
+                  Curabitur mollis lectus ut justo sodales, in cursus ante faucibus. Suspendisse venenatis consequat diam, ornare aliquam turpis auctor quis. Duis condimentum porttitor erat vitae vehicula. Praesent id nunc suscipit, congue tellus ac, posuere neque. Proin eu pharetra felis, eget ullamcorper leo. Phasellus vulputate lobortis faucibus.
+                  Aenean mattis orci ut lectus dignissim, quis convallis lacus ornare. Nullam ut eleifend risus.
+                  Praesent quis mi arcu. Nam vel leo venenatis, placerat enim a, fringilla ipsum.
+                  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                  Fusce ornare molestie lacinia. Sed interdum nisi nibh.</p>
+                  <ul>
+                    <li>Nulla velit est, fringilla vitae lectus sed</li>
+                    <li>Aliquet molestie tortor. Maecenas nibh ex</li>
+                    <li>iaculis at sem porta, sollicitudin ornare diam.</li>
+                    <li>Morbi eu massa volutpat, porta mauris aliquet, congue enim.</li>
+                  </ul>
+                <h2>Jon Smith, show us why you are the ideal candidate.</h2>
+                <div class="row">
+	                <div class="form-field large-6 medium-9 column">
+                    Paste a link to your video below. We recommend using a video sharing website such as <a href="http://youtube.com" >YouTube</a> or <a href="http://vimeo.com" >Vimeo</a>
+                    <input name="videolink" type="text" class="video-link" placeholder="Video Link"  />
+   	             </div>                
+                </div>
+                <div class="form-field">
+                    <label for="videofile">Or Upload a file
+                      <input type="file" id="videofile" name="videofile" />
+                    </label>
+                    <p><span class="info small-text"><b>Accepted filetypes:</b> MOV, MPEG4, MP4, AVI, WMV, MPEGPS, FLV, 3GPP, WebM</span></p>
+                    <p><span class="info small-text"><b>Max Filesize:</b> 25MB</span></p>
+                </div>
+              </div>
+              <div class="large-12 columns ">
+                <input type="submit" name="video-upload" class="button yellow wide" />
+              </div>
+            </div>
+          </form>
+				
+          	<?php }else{  ?>      
+          	    	
+          	   <a href="login.php" class="style-trans-not button yellow" >Log in to view this page</a>
+          	   
+            <?php } ?> 
+        </div>
+      </div>
+    </section>
+    <footer >
+        <div class="row">
+          <div class="small-12 medium-6 large-9 columns">
+            <div class="row1">
+              <a href="/" class="logo ">Logo</a>
+            </div>
+          </div>
+          <div class="small-12 medium-6 large-3 columns social-media">
+            <div class="row1">
+              <ul id="social_list">
+                  <li><a href="https://www.facebook.com/gopagelocalloyalty/" target="_blank"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+                  <li><a href="https://twitter.com/GoPageCo" target="_blank"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                  <li><a href="https://www.youtube.com/channel/UCs21ZcDTmrGQrSXZVPinKfQ" target="_blank"><span class="fa fa-youtube-play" aria-hidden="true"></span></a></li>
+                  <li><a href="https://www.pinterest.com/thegopage/" target="_blank"><span class="fa fa-pinterest" aria-hidden="true"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="large-12 footer-links columns">
+            <div class="row">
+              <div class="medium-6 large-3 columns">
+                <ul class="footer_list">
+                      <!--LIST HEADER-->
+                      <li><h4>New to GoPage?</h4></li>
+                      <li><a href="http://gopage.com/index.php/about">What is GoPage?</a></li>
+                      <li><a href="http://gopage.com/index.php/pages/register">Join GoPage Now!</a></li>
+                      <li><a href="http://gopage.com/index.php/guide">New Member Guide</a></li>
+                      <li><a href="http://gopage.com/index.php/smartapp">Mobile Member App</a></li>
+                  </ul>
+              </div>
+              <div class="medium-6 large-3 columns">
+                <ul class="footer_list">
+                      <!--LIST HEADER-->
+                      <li><h4>Member Activities</h4></li>
+                      <li><a href="http://gopage.com/index.php/guide">Membership Overview</a></li>
+                      <li><a href="http://gopage.com/index.php/deals">About Deals</a></li><!-- NO ACTION! nothing new here-->
+                      <li><a href="http://gopage.com/index.php/dealsmap">Find Deals</a></li><!--NEW: Full page map showing all deals within a 25 km circle from GoPage businesses-->
+                      <li><a href="http://gopage.com/index.php/honeytips">Earn Points</a></li><!-- NO ACTION! Links to existing points explanation page.  More text required to explain how to earn points quicker and how to redeem points.-->
+                      <li><a href="http://gopage.com/index.php/rewards">Member Rewards</a></li> <!--NO ACTION! links to existing page that shows rewards-->
+
+                  </ul>
+              </div>
+              <div class="medium-6 large-3 columns">
+                <ul class="footer_list">
+                      <!--LIST HEADER-->
+                      <li><h4>Information About GoPage</h4></li>
+                      <!-- This is a column for Library stuff.  References, contacts, facts etc. -->
+                      <li><a href="http://gopage.com/index.php/corporate">About GoPage?</a></li>
+                      <li><a href="http://gopage.com/index.php/contact">Contact GoPage</a></li>
+                      <li><a href="http://gopage.com/index.php/terms">Terms and Conditions</a></li>
+                      <li><a href="http://gopage.com/index.php/privacy">Privacy Policy</a></li>
+                      <li><a href="http://gopage.com/index.php/investors">Investor Relations</a></li>
+                      <li><a href="http://gopage.com/index.php/jobs">Careers At GoPage</a></li>
+                       <!--<li><a href="">Old Menu</a></li>-->
+
+                  </ul>
+              </div>
+              <div class="medium-6 large-3 columns">
+                <a href="http://www.gopage.com/"><div class="go-back">Go back to GoPage.com</div></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="copyright large-12 columns">
+            Copyright &#169; 2014-2018 - GoPage Corporation. All Rights Reserved.
+          </div>
+        </div>
+      </footer>
+
+    <script src="js/vendor/jquery/dist/jquery.js"></script>
+    <script src="js/vendor/what-input/dist/what-input.js"></script>
+    <script src="js/foundation.core.js"></script>
+    <script src="js/custom/app.js"></script>
+  </body>
+</html>
