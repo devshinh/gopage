@@ -150,13 +150,13 @@ class USER
 		$mail->SMTPDebug  = 0;                     
 		$mail->SMTPAuth   = true;                  
 		$mail->SMTPSecure = "ssl";                 
-		$mail->Host       = "smtp.gmail.com";      
+		$mail->Host       = "smtp.googlemail.com";      
 		$mail->Port       = 465;             
 		$mail->AddAddress($email);
-		$mail->Username="atulshin@gmail.com";  
-		$mail->Password="";            
-		$mail->SetFrom('atulshin@gmail.com','GoPage');
-		$mail->AddReplyTo("atulshin@gmail.com","GoPage");
+		$mail->Username="noreply@gopage.com";  
+		$mail->Password="G0p@&e_ADM!N1";            
+		$mail->SetFrom('noreply@gopage.com','GoPage Careers');
+		//$mail->AddReplyTo("atulshin@gmail.com","GoPage");
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();

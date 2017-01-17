@@ -177,13 +177,13 @@ class PHPMailer {
    * Hosts will be tried in order.
    * @var string
    */
-  public $Host          = 'ssl://smtp.googlemail.com';
+  public $Host          = 'localhost';
 
   /**
    * Sets the default SMTP server port.
    * @var int
    */
-  public $Port          = 465;
+  public $Port          = 25;
 
   /**
    * Sets the SMTP HELO of the message (Default is $Hostname).
@@ -202,19 +202,19 @@ class PHPMailer {
    * Sets SMTP authentication. Utilizes the Username and Password variables.
    * @var bool
    */
-  public $SMTPAuth      = true;
+  public $SMTPAuth      = false;
 
   /**
    * Sets SMTP username.
    * @var string
    */
-  public $Username      = 'noreply@gopage.com';
+  public $Username      = '';
 
   /**
    * Sets SMTP password.
    * @var string
    */
-  public $Password      = 'G0p@&e_ADM!N1';
+  public $Password      = '';
 
   /**
    * Sets the SMTP server timeout in seconds.
