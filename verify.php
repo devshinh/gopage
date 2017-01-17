@@ -72,6 +72,12 @@ if(isset($_GET['id']) && isset($_GET['code']))
     <div class="container">
 		<p><?php if(isset($msg)) { echo $msg; } ?> </p>
     </div> <!-- /container -->
+    
+    <?php
+    
+    $footer = file_get_contents('./assets/sections/footer.html', FILE_USE_INCLUDE_PATH);
+    echo $footer; 
+    ?>
     <script src="js/vendor/jquery/dist/jquery.js"></script>
     <script src="js/vendor/what-input/dist/what-input.js"></script>
     <script src="js/foundation.core.js"></script>
