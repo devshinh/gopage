@@ -6,6 +6,7 @@ class Database
     private $db_name = "gousj_careers";
     private $username = "gousj_dbuser";
     private $password = "GoUsj123#@!";
+   
     public $conn;
      
     public function dbConnection()

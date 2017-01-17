@@ -3,11 +3,13 @@ session_start();
 require_once 'library/class.user.php';
 $user_login = new USER();
 
+$loginclass = '';
 if($user_login->is_logged_in()!="")
 {	
 	$stmt = $user_login->runQuery("SELECT * FROM tbl_users WHERE user_id=:uid");
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	$loginclass = 'user-logged';
 	//$user_login->redirect('home.php');
 }
 if(isset($_POST['btn-login']))
@@ -38,12 +40,15 @@ if(isset($_POST['btn-login']))
   </head>
   <body id="usj-landing">
     <header class="row">
-      <div class="head-wrap column">
+    	<div id="hero">
+    		<img src="dist/style_assets/USJ-header-image.jpg" data-interchange="[dist/style_assets/USJ-header-image.jpg, (default)], [dist/style_assets/USJ-header-image-2x.jpg, (large)], [dist/style_assets/USJ-header-image-2x.jpg, (retina)]" >
+    	</div>
+      <div class="head-wrap">
         <div class=" top-bar">
           <div id="logo">
             <a href="/" class="logo ">Logo</a>
           </div>
-          <div class="login ">
+          <div class="login 	<?php echo $loginclass; ?> ">
           	<?php if($user_login->is_logged_in()!=""){ 
 					echo "<a href='' class='username'>". $row['firstname'] ."</a>";         	
           	
@@ -152,6 +157,12 @@ if(isset($_POST['btn-login']))
     <script src="js/vendor/jquery/dist/jquery.js"></script>
     <script src="js/vendor/what-input/dist/what-input.js"></script>
     <script src="js/foundation.core.js"></script>
+    <script src="js/foundation.util.mediaQuery.js"></script>    
+    <script src="js/foundation.interchange.js"></script>
     <script src="js/custom/app.js"></script>
+    <script>
+    	$(document).foundation();
+	 </script>
+    
   </body>
 </html>

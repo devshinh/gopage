@@ -88,6 +88,9 @@ if(isset($_POST['video-upload'])) {
   </head>
   <body id="videopage">
     <header class="row">
+	   <div id="hero">
+    		<img src="dist/style_assets/video-submission-header-image.jpg" data-interchange="[dist/style_assets/video-submission-header-image-2x.jpg, (default)], [dist/style_assets/video-submission-header-image-2x.jpg, (retina)]" >
+    	</div>
       <div class="head-wrap column">
         <div class=" top-bar">
           <div id="logo">
@@ -162,6 +165,11 @@ if(isset($_POST['video-upload'])) {
     <script src="js/vendor/jquery/dist/jquery.js"></script>
     <script src="js/vendor/what-input/dist/what-input.js"></script>
     <script src="js/foundation.core.js"></script>
+    <script src="js/foundation.util.mediaQuery.js"></script>    
+    <script src="js/foundation.interchange.js"></script>
     <script src="js/custom/app.js"></script>
+    <script>
+    	$(document).foundation();
+	 </script>
   </body>
 </html>

@@ -189,15 +189,17 @@ if(isset($_POST['signup-submit'])) {
 			$id = $reg_user->lasdID();		
 			$key = base64_encode($id);
 			$id = $key;
-			
-			$message = "Hello $uname,
+	
+			$message = 
+						 "Hello $uname,
 						<br /><br />
 						Welcome to GoPage Careers!<br/>
 						To complete your registration  please , just click following link<br/>
 						<br /><br />
-						<a href='http://144.217.29.87/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://144.217.29.87/verify.php?id=$id&code=$code' class='button yellow'>Click HERE to Activate</a>
 						<br /><br />
 						Thanks,";
+						
 						
 			$subject = "Confirm Registration";
 						
@@ -235,6 +237,9 @@ if(isset($_POST['signup-submit'])) {
   </head>
   <body id="signup">
     <header class="row">
+    	<div id="hero">
+    		<img src="dist/style_assets/form-header-image.jpg" data-interchange="[dist/style_assets/form-header-image.jpg, (default)], [dist/style_assets/form-header-image-2x.jpg, (large)], [dist/style_assets/form-header-image-2x.jpg, (retina)]" >
+    	</div>
       <div class="head-wrap column">
         <div class=" top-bar">
           <div id="logo">
@@ -357,6 +362,12 @@ if(isset($_POST['signup-submit'])) {
     <script src="js/vendor/jquery/dist/jquery.js"></script>
     <script src="js/vendor/what-input/dist/what-input.js"></script>
     <script src="js/foundation.core.js"></script>
+    <script src="js/foundation.util.mediaQuery.js"></script>    
+    <script src="js/foundation.interchange.js"></script>
     <script src="js/custom/app.js"></script>
+    <script>
+    	$(document).foundation();
+	 </script>
+	 
   </body>
 </html>
