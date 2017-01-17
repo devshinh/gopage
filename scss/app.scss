@@ -34,6 +34,7 @@ header, footer, section{ position: relative; }
 .limit-width{ max-width:1158px; }
 .text-hide{ text-indent: -9999px; }
 .form-field{ margin-bottom:15px; }
+.alert{ border:1px solid red; p{ padding:10px; margin:0; } }
 /* Small Text: I give GoPage permis: */
 .small-text{ font-family: $font-raleway; font-size: 12px; color: #373A3C; line-height: 13px; }
 .feature-video{ max-height:480px; min-height:220px; margin-top:1.25rem;

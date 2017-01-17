@@ -17,7 +17,7 @@ function uploadFile(){
 	$videoSize = $_FILES["videofile"]["size"];
 	$filename = $_FILES["videofile"]["name"];
 		
-	$allowedVideoTypes = array('video/mp4', 'video/x-flv', 'video/x-flv', 'video/x-ms-wmv', 'application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword');
+	$allowedVideoTypes = array('video/mp4', 'video/x-flv', 'video/x-ms-wmv', 'video/avi', 'video/msvideo', 'video/x-msvideo', 'application/x-troff-msvideo', 'video/webm', 'video/quicktime', 'video/mpeg', 'video/3gpp' );
 	
 	$fileSizeLimit = 25000000;
 	
@@ -62,9 +62,11 @@ if(isset($_POST['video-upload'])) {
 		if(!$videoError){
 			$video_path = $videoArr['name'];
 			$user_video->videoadd($uid, $video_path, $video_link);		
-		}	
+		}else {
+			$msg = $videoArr['text'];		
+		}		
 	}elseif(($_FILES['videofile']['size'] == 0) && (strlen($video_link) == 0) ) {
-		$msg = "<div class='alert alert-success'> <p> Please upload file or enter video path</p></div>";
+		$msg = " Please upload file or enter video path";
 	}else{
 			$user_video->videoadd($uid, $video_path, $video_link);
 	}	
@@ -109,7 +111,11 @@ if(isset($_POST['video-upload'])) {
       <div class="row" id="content">
         <div class="large-12 columns">
         
-        	<?php if($user_video->is_logged_in()!=""){  echo $msg; ?>
+        	<?php if($user_video->is_logged_in()!=""){ 
+				echo "<div class='alert alert-success'> <p>";        	
+        	 	echo $msg; 
+        	 	echo "</p></div>";
+          ?>
                      
           <form action="video.php" method="post" enctype="multipart/form-data">
             <div class="row ">
