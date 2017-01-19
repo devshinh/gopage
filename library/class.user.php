@@ -156,7 +156,8 @@ class USER
 		$mail->Username="noreply@gopage.com";  
 		$mail->Password="G0p@&e_ADM!N1";            
 		$mail->SetFrom('noreply@gopage.com','GoPage Careers');
-		//$mail->AddReplyTo("atulshin@gmail.com","GoPage");
+		//$mail->AddCC('test@domain.com');
+		//$mail->AddReplyTo("test@domain.com","GoPage");
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();

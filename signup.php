@@ -190,8 +190,9 @@ if(isset($_POST['signup-submit'])) {
 			$key = base64_encode($id);
 			$id = $key;
 	
-			$message = file_get_contents('./assets/sections/emailhead.html', FILE_USE_INCLUDE_PATH).
-						"<h1>Hi, $uname</h1>
+			$message = file_get_contents('./assets/sections/emailhead.html', FILE_USE_INCLUDE_PATH);
+			
+			$message .= "<h1>Hi, $fname $lname</h1>
       <p class='lead'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, iste, amet consequatur a veniam.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut optio nulla et, fugiat. Maiores accusantium nostrum asperiores provident, quam modi ex inventore dolores id aspernatur architecto odio minima perferendis, explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima quos quasi itaque beatae natus fugit provident delectus, magnam laudantium odio corrupti sit quam. Optio aut ut repudiandae velit distinctio asperiores?</p>
       <callout class='primary'></p>
@@ -199,8 +200,8 @@ if(isset($_POST['signup-submit'])) {
         <br/> <br/>
         <p> 
 			<a href='http://144.217.29.87/verify.php?id=$id&code=$code' class='button yellow'>Click HERE to Activate</a>        
-        </p> <br/> <br/>".
-        file_get_contents('./assets/sections/emailfoot.html', FILE_USE_INCLUDE_PATH);
+        </p> <br/> <br/>";
+        $message .= file_get_contents('./assets/sections/emailfoot.html', FILE_USE_INCLUDE_PATH);
 						
 			$subject = "Confirm your GoPage Registration!";
 						
