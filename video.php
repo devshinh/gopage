@@ -111,10 +111,12 @@ if(isset($_POST['video-upload'])) {
       <div class="row" id="content">
         <div class="large-12 columns">
         
-        	<?php if($user_video->is_logged_in()!=""){ 
-				echo "<div class='alert alert-success'> <p>";        	
-        	 	echo $msg; 
-        	 	echo "</p></div>";
+        	<?php if($user_video->is_logged_in()!="" ){
+        		if((strlen($msg) > 0)) {        		
+					echo "<div class='alert alert-success'> <p>";        	
+        	 		echo $msg; 
+        	 		echo "</p></div>";
+        	 	}
           ?>
                      
           <form action="video.php" method="post" enctype="multipart/form-data">
